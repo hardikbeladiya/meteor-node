@@ -10,6 +10,7 @@ RUN sudo apt-get install -y build-essential
 RUN sudo apt-get install -y python
 RUN sudo apt-get install -y make
 RUN sudo apt-get install -y g++
+RUN sudo apt-get install -y libfontconfig
 RUN apt-get install -y locales >/dev/null
 RUN echo "en_US UTF-8" > /etc/locale.gen
 RUN locale-gen en_US.UTF-8
