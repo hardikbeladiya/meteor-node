@@ -1,9 +1,7 @@
 
-FROM ubuntu:14.04
+FROM flurdy/oracle-java8
 
 MAINTAINER Gabor Raz
-
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 RUN apt-get update >/dev/null
