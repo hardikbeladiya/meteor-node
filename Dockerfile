@@ -1,10 +1,11 @@
 
-FROM ubuntu:14.04
+FROM ubuntu:latest
 
 MAINTAINER Gabor Raz
 
 RUN apt-get update
 RUN apt-get update >/dev/null
+RUN apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 RUN sudo apt-get install -y git
 RUN sudo apt-get install -y curl
 RUN sudo apt-get install -y build-essential
