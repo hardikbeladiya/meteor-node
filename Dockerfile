@@ -3,6 +3,8 @@ FROM ubuntu:14.04
 
 MAINTAINER Gabor Raz
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update
 RUN apt-get update >/dev/null
 RUN sudo apt-get install -y git
