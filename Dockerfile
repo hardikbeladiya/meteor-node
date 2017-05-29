@@ -1,10 +1,11 @@
 
-FROM java:8
+FROM ubuntu:16.04
 
 MAINTAINER Gabor Raz
 
 RUN apt-get update
 RUN apt-get update >/dev/null
+RUN apt-get install sudo
 RUN sudo apt-get install -y git
 RUN sudo apt-get install -y curl
 RUN sudo apt-get install -y build-essential
