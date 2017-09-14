@@ -30,6 +30,16 @@ RUN apt-get update \
     && curl https://install.meteor.com/ | sh \
     && apt-get install -y openssh-client \
     && echo 'PATH="/usr/local/node/bin:${PATH}"' >> /etc/bash.bashrc \
+#Install java
+    && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
+    && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list \
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
+    && apt-get update \
+# Enable silent install
+    && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
+    && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections \
+    && apt-get install -y oracle-java8-installer \
+    && apt-get install oracle-java8-set-default \
 # install browserstack local
     && curl -O https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip \
     && unzip BrowserStackLocal-linux-x64.zip \
