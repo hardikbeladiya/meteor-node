@@ -31,9 +31,9 @@ RUN apt-get update \
     && apt-get install -y openssh-client \
     && echo 'PATH="/usr/local/node/bin:${PATH}"' >> /etc/bash.bashrc \
 # install browserstack local
-    && curl -O https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-ia32.zip \
-    && unzip BrowserStackLocal-linux-ia32.zip \
-    && rm BrowserStackLocal-linux-ia32.zip \
+    && curl -O https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip \
+    && unzip BrowserStackLocal-linux-x64.zip \
+    && rm BrowserStackLocal-linux-x64.zip \
     && chmod +x BrowserStackLocal \
     && mv BrowserStackLocal /usr/local/bin \
 
