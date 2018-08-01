@@ -20,11 +20,20 @@ RUN apt-get update \
     && curl https://install.meteor.com/ | sh \
     && apt-get install -y openssh-client \
     && echo 'PATH="/usr/local/node/bin:${PATH}"' >> /etc/bash.bashrc \
+#Install java
+    #&& echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
+    #&& echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list \
+    #&& apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
+    #&& apt-get update \
 # Enable silent install
-    && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
-    && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections \
-    && apt-get install -y oracle-java8-installer \
-    && apt-get install oracle-java8-set-default \
+    #&& echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
+    #&& echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections \
+    #&& apt-get install -y oracle-java8-installer \
+    #&& apt-get install oracle-java8-set-default \
+# Install Firefox 45.4.0 (https://github.com/SeleniumHQ/selenium/blob/master/java/CHANGELOG#L33)
+#   && curl -o /var/tmp/firefox-45.4.0esr.tar.bz2 https://ftp.mozilla.org/pub/firefox/releases/45.4.0esr/linux-x86_64/en-US/firefox-45.4.0esr.tar.bz2 \
+#   && tar xvfj /var/tmp/firefox-45.4.0esr.tar.bz2 \
+#   && ln -s /firefox/firefox-bin /usr/bin/firefox
 # Install Docker 
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
