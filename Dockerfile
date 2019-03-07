@@ -12,7 +12,7 @@ RUN apt-get update \
     && sudo apt-get install -y curl \
     && sudo apt-get install -y build-essential \
     && apt-get install -y apt-transport-https ca-certificates gnupg2 software-properties-common \
-    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+    && curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
     && sudo apt-get install -y nodejs \
     && sudo npm install node-gyp -g \
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
